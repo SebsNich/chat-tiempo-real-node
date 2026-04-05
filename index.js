@@ -8,7 +8,10 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "http://127.0.0.1:5500", // 0 el origen que se usa para servir el HTML
+        origin: [
+            "http://127.0.0.1:5500", 
+            "https://chatapp-online-sebs-solutions.netlify.app" // ¡Tu nueva URL de Netlify!
+        ],
         methods: ["GET", "POST"]
     }
 });
