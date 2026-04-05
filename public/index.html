@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat en Tiempo Real | Sebas Solutions</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-zinc-950 text-zinc-200 font-sans h-screen flex flex-col overflow-hidden">
+
+    <header class="w-full bg-zinc-900 border-b border-zinc-800 p-4 shadow-md shrink-0">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 ">
+                    <img src="Minimalist Logo Featuring Bold 'S'.png" alt="logo-sebasSolutions" class="rounded-full border-2 border-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">Sebas Solutions <span class="text-violet-500 font-light">| Chat</span></span>
+            </div>
+            <nav class="hidden md:block">
+                <span class="text-zinc-400 text-sm italic">chat-app V1.0</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-1 container mx-auto flex gap-4 p-4 min-h-0"> 
+        
+        <aside id="user-list" class="w-1/4 max-w-[250px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg flex flex-col overflow-hidden hidden md:flex">
+            <div class="p-4 border-b border-zinc-800 bg-zinc-900/50">
+                <h3 class="font-semibold text-violet-400 flex items-center gap-2">
+                    <i class="fa-solid fa-users"></i> Conectados
+                </h3>
+            </div>
+            <ul id="users" class="flex-1 overflow-y-auto p-2 space-y-2">
+                </ul>
+        </aside>
+
+        <section id="chat-box" class="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg flex flex-col overflow-hidden">
+            
+            <div class="p-4 border-b border-zinc-800 bg-zinc-900/50 flex justify-between items-center">
+                <h3 class="font-semibold text-zinc-100 flex items-center gap-2">
+                    <i class="fa-regular fa-comments text-violet-500"></i> Sala General
+                </h3>
+            </div>
+
+            <div id="messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-zinc-950/30">
+                </div>
+
+            <div class="p-4 bg-zinc-900 border-t border-zinc-800">           
+                <form id="username-form" class="flex gap-3">
+                    <input type="text" id="username-input" placeholder="Ingresa tu nombre para unirte..." autocomplete="off" required
+                        class="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors">
+                    
+                    <button type="submit" 
+                        class="bg-violet-600 hover:bg-violet-500 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-violet-500/20">
+                        <span class="hidden sm:inline">Unirse</span> 
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                </form>
+                <form id="message-form" class="hidden gap-3">
+                    <input type="text" id="message-input" placeholder="Escribe un mensaje..." autocomplete="off" required
+                        class="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors">
+                    
+                    <button type="submit" 
+                        class="bg-violet-600 hover:bg-violet-500 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-violet-500/20">
+                        <span class="hidden sm:inline">Enviar</span> 
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-zinc-900 border-t border-zinc-800 p-4 shrink-0">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-center md:text-left flex flex-col items-center md:items-start gap-1">
+                <p class="font-bold text-zinc-200 text-sm">Juan Sebastián Nicholls Rivas</p>
+                <p class="text-xs text-zinc-400">Desarrollador de Software</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="https://github.com/SebsNich" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-violet-400 transition-colors text-lg">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/juan-sebastian-nicholls-rivas-a2478a344" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-violet-400 transition-colors text-lg">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/sebasnich14/" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-violet-400 transition-colors text-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+
+            <p class="text-xs text-zinc-500">© 2026 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
